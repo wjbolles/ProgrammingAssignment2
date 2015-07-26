@@ -2,7 +2,11 @@
 ## functions do
 
 ## Write a short comment describing this function
-
+# Returns a list of 4 functions for returning precomputed inverse matrices:
+# get, 
+# set, 
+# setinverse, 
+# and getinverse.
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
   set <- function(y) {
@@ -17,9 +21,8 @@ makeCacheMatrix <- function(x = matrix()) {
        getinverse = getinverse)
 }
 
-
 ## Write a short comment describing this function
-
+# Calculates the inverse of the matrix. If it has been already been computed it retrieves it using makeCacheMatrix
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
   m <- x$getinverse()
@@ -33,8 +36,10 @@ cacheSolve <- function(x, ...) {
   m
 }
 
+# using makeCacheMatrix & cacheSolve
 testmat <- matrix(1:4, 2, 2)
 test <- makeCacheMatrix(testmat)
 cacheSolve(test)
 
+# using solve
 solve(testmat)
